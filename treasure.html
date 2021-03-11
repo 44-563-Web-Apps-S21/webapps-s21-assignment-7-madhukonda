@@ -63,13 +63,22 @@
     <div class="col-sm-2"><img src="book.jpg"id="24"onclick="makeGuess(24)"class="img-fluid"alt="Responsive image"/></div>
   </div>
 <script>
-  var ids = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14",
-                "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+  var ids = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14","15", "16", "17", "18",
+   "19", "20", "21", "22", "23", "24"]
 
     var clickCount = 0;
     var treasureLocation = 18;
     var treasureLocation = getRandomIntInclusive(0, 24);
         console.log(treasureLocation);
+function newGame() {
+            var clickCount = 0;
+            var treasureLocation = getRandomIntInclusive(0, 24);
+            console.log(treasureLocation);
+            document.getElementById("clicks").innerHTML = "Number of clicks is " + clickCount + ".";
+
+            document.getElementById("distance").innerHTML = "Distance is unknown.";
+        }
+
 
         function getRandomIntInclusive(min, max) {
             min = Math.ceil(min);
@@ -100,8 +109,6 @@
 
         document.getElementById("distance").innerHTML = "Distance is " +treasureDistance;
     }
-    
-
     function distance(pos1, pos2){
         var grid =
     [
@@ -112,7 +119,6 @@
         [20, 21, 22, 23, 24]
     ]
     var x1 = 0, y1 = 0, x2 = 0, y2 = 0;
-
     for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++)
     if (grid[i][j] == pos1) {
@@ -121,20 +127,17 @@
         break;
     }
 }
-
-    for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++)
+for (var i = 0; i < 5; i++) {
+for (var j = 0; j < 5; j++)
     if (grid[i][j] == pos2) {
         x2 = i;
         y2 = j;
         break;
     }
 }
-
 var treasureDistance = Math.abs(x2-x1) + Math.abs(y2-y1);
 return treasureDistance;
-
-    }
-    </script>
+ }
+</script>
 </body>
 </html>
